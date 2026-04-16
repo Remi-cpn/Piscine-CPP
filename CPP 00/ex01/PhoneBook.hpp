@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rcompain <rcompain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/15 16:25:40 by rcompain          #+#    #+#             */
-/*   Updated: 2026/04/16 15:53:59 by rcompain         ###   ########.fr       */
+/*   Created: 2026/04/15 16:11:16 by rcompain          #+#    #+#             */
+/*   Updated: 2026/04/16 15:04:02 by rcompain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.hpp"
+#ifndef PHONEBOOK_HPP
+# define PHONEBOOK_HPP
 
-int	main(void)
+#include <iostream>
+#include "Contact.hpp"
+
+class Phonebook
 {
-	Phonebook phonebook;
-	std::string str;
+	public:
 
-	while (std::getline(std::cin, str))
-	{
-		if (str == "ADD")
-			phonebook.add();
-		if (str == "SEARCH")
-			phonebook.search();
-		if (str == "EXIT")
-			break ;
-	}
-	if (std::cin.eof())
-		return 1;
-	return 0;
-}
+		Contact list[8];
+		
+		Phonebook(void);
+		~Phonebook(void);
+
+		void	add(void);
+		void	search(void);
+};
+
+#endif

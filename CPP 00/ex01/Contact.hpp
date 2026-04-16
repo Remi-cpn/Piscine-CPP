@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Phonebook.class.hpp                                :+:      :+:    :+:   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rcompain <rcompain@student.42angouleme.    +#+  +:+       +#+        */
+/*   By: rcompain <rcompain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/15 16:11:16 by rcompain          #+#    #+#             */
-/*   Updated: 2026/04/16 10:25:57 by rcompain         ###   ########.fr       */
+/*   Created: 2026/04/16 14:55:48 by rcompain          #+#    #+#             */
+/*   Updated: 2026/04/16 15:24:52 by rcompain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_CLASS_H
-# define PHONEBOOK_CLASS_H
+#ifndef CONTACT_HPP
+# define CONTACT_HPP
 
 #include <iostream>
 
@@ -27,19 +27,6 @@ class Contact
 
 		Contact(void);
 		~Contact(void);
-};
-
-class Phonebook
-{
-	public:
-
-		Contact list[8];
-		
-		Phonebook(void);
-		~Phonebook(void);
-
-		void	add(void);
-		void	search(void);
 };
 
 #endif

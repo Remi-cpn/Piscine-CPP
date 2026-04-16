@@ -6,20 +6,19 @@
 #    By: rcompain <rcompain@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/04/15 13:50:50 by rcompain          #+#    #+#              #
-#    Updated: 2026/04/16 15:26:49 by rcompain         ###   ########.fr        #
+#    Updated: 2026/04/16 16:00:22 by rcompain         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= 	phonebook
+NAME		= 	test
 CC			= 	c++
 CFLAGS		= 	-Wall -Wextra -Werror -std=c++98
 RM			= 	rm -f
 OBJ_DIR		= 	obj
 
 # ——— Sources ——————————————————————————————————————————————————————————————— #
-SRC			= PhoneBook.cpp \
-			  Contact.cpp \
-			  main.cpp
+SRC			= Account.cpp \
+			  tests.cpp
 
 OBJ			= ${SRC:%.cpp=$(OBJ_DIR)/%.o}
 
