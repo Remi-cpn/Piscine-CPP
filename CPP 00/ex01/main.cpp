@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rcompain <rcompain@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rcompain <rcompain@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/15 16:25:40 by rcompain          #+#    #+#             */
-/*   Updated: 2026/04/16 15:53:59 by rcompain         ###   ########.fr       */
+/*   Updated: 2026/04/17 08:46:35 by rcompain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ int	main(void)
 	{
 		if (str == "ADD")
 			phonebook.add();
-		if (str == "SEARCH")
+		else if (str == "SEARCH")
 			phonebook.search();
-		if (str == "EXIT")
+		else if (str == "EXIT")
 			break ;
 	}
 	if (std::cin.eof())

@@ -6,7 +6,7 @@
 #    By: rcompain <rcompain@student.42angouleme.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/04/15 13:50:50 by rcompain          #+#    #+#              #
-#    Updated: 2026/04/15 13:56:16 by rcompain         ###   ########.fr        #
+#    Updated: 2026/04/17 08:29:03 by rcompain         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,39 +16,32 @@ CFLAGS		= -Wall -Wextra -Werror -std=c++98
 RM			= rm -f
 OBJ_DIR		= obj
 
-# **************************************************************************** #
-#                                   SOURCES                                    #
-# **************************************************************************** #
-
+# ——— Sources ——————————————————————————————————————————————————————————————— #
 SRC			= megaphone.cpp
 
 OBJ			= ${SRC:%.c=$(OBJ_DIR)/%.o}
 
-# **************************************************************************** #
-#                                   RULES                                      #
-# **************************************************************************** #
-
-all: banner $(NAME)
+# ——— Rules ————————————————————————————————————————————————————————————————— #
+all: $(NAME)
 
 $(NAME): $(OBJ)
 	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
-	@echo "\r\033[2K$(CYAN)📝 Compiled project files: $(BOLD)$(GREEN)[OK]$(RESET)"
-	@echo "$(BOLD) $(GREEN)\n         Project compiled successfully ✅$(RESET)\n"
+	@echo "Project compiled successfully ✅"
 
 $(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)
 	@$(CC) $(CFLAGS) -c $< -o $@
-	@printf "\r\033[2K$(CYAN)📝 Compiled project files: %s$(RESET)" "$<"
 
 $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
 
+# ——— Cleanup ——————————————————————————————————————————————————————————————— #
 clean:
 	@$(RM) -r $(OBJ_DIR)
-	@echo "$(CYAN)Object files removed$(RESET)"
+	@echo "Object files removed
 
 fclean: clean
 	@$(RM) $(NAME)
-	@echo "$(CYAN)Executable removed$(RESET)"
+	@echo "Executable removed"
 
 re: fclean all
 

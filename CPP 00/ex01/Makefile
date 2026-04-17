@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rcompain <rcompain@student.42.fr>          +#+  +:+       +#+         #
+#    By: rcompain <rcompain@student.42angouleme.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/04/15 13:50:50 by rcompain          #+#    #+#              #
-#    Updated: 2026/04/16 15:26:49 by rcompain         ###   ########.fr        #
+#    Updated: 2026/04/17 08:29:56 by rcompain         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ SRC			= PhoneBook.cpp \
 OBJ			= ${SRC:%.cpp=$(OBJ_DIR)/%.o}
 
 # ——— Rules ————————————————————————————————————————————————————————————————— #
-all: banner $(NAME)
+all: $(NAME)
 
 $(NAME): $(OBJ)
 	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
@@ -39,12 +39,12 @@ $(OBJ_DIR):
 # ——— Cleanup ——————————————————————————————————————————————————————————————— #
 clean:
 	@$(RM) -r $(OBJ_DIR)
-	@echo "$(CYAN)Object files removed$(RESET)"
+	@echo "Object files removed"
 
 fclean: clean
 	@$(RM) $(NAME)
-	@echo "$(CYAN)Executable removed$(RESET)"
+	@echo "Executable removed"
 
 re: fclean all
 
-.PHONY: all clean fclean re banner
+.PHONY: all clean fclean re

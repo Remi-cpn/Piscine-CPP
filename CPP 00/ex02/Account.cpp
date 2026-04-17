@@ -3,20 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   Account.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rcompain <rcompain@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rcompain <rcompain@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/16 15:58:56 by rcompain          #+#    #+#             */
-/*   Updated: 2026/04/16 18:23:46 by rcompain         ###   ########.fr       */
+/*   Updated: 2026/04/17 08:44:01 by rcompain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Account.hpp"
 #include <iostream>
+#include <string>
 #include <ctime>
 
-/** ——— Class Account ——————————————————————————————————————————————————————— */
-
-/* ——— Constructor ———— */
+/* ——— Constructor & Destructor ————————————————————————————————————————————— */
 Account::Account(int initial_deposit)
 {
 	_displayTimestamp();
@@ -34,7 +33,6 @@ Account::Account(int initial_deposit)
 	_totalAmount += initial_deposit;
 }
 
-/* ——— Destructor ———— */
 Account::~Account(void)
 {
 	_displayTimestamp();
@@ -44,14 +42,16 @@ Account::~Account(void)
 }
 
 
-/* ——— Private Variable ———— */
+
+/* ——— Private Variable ————————————————————————————————————————————————————— */
 int Account::_nbAccounts = 0;
 int Account::_totalAmount = 0;
 int Account::_totalNbDeposits = 0;
 int Account::_totalNbWithdrawals = 0; 
 
 
-/* ——— Public Methods ———— */
+
+/* ——— Public Methods ——————————————————————————————————————————————————————— */
 int Account::getNbAccounts(void) { return (_nbAccounts); }
 int Account::getTotalAmount(void) { return (_totalAmount); }
 int Account::getNbDeposits(void) { return (_totalNbDeposits); }
@@ -110,13 +110,15 @@ void Account::displayStatus(void) const
 	std::cout << "withdrawals:" << _nbWithdrawals << std::endl;
 }
 
-/* ——— Private Methods ———— */
+
+
+/* ——— Private Methods —————————————————————————————————————————————————————— */
 void	Account::_displayTimestamp(void)
 {
-	std::time_t time = std::time(NULL);
-	std::tm* t = std::localtime(&time);
+	std::time_t now = std::time(NULL);
+	std::tm* t = std::localtime(&now);
 	std::string str;
-	char buff[16];
+	char buff[32];
 	
 	std::strftime(buff, 32, "%Y%m%d_%H%M%S", t);
 	str = buff;
