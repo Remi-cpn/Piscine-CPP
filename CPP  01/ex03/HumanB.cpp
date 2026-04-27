@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rcompain <rcompain@student.42angouleme.    +#+  +:+       +#+        */
+/*   By: rcompain <rcompain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 16:26:19 by rcompain          #+#    #+#             */
-/*   Updated: 2026/04/24 17:06:16 by rcompain         ###   ########.fr       */
+/*   Updated: 2026/04/27 11:58:46 by rcompain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ HumanB::HumanB(void)
 HumanB::HumanB(std::string name)
 {
 	std::cout << DIM << "Constructor HumanB called" << RESET << std::endl;
-	HumanB::name = name;
+	HumanB::_name = name;
 }
 
 /* Destructor */
@@ -36,11 +36,16 @@ HumanB::~HumanB(void)
 
 /* ——— GETTER & SETTER —————————————————————————————————————————————————————— */
 
-void HumanB::setWeapon(Weapon weapon) { HumanB::weapon = weapon; }
+void HumanB::setWeapon(Weapon* weapon) { HumanB::_weapon = weapon; }
 
 
 /* ——— Member Function —————————————————————————————————————————————————————— */
 void HumanB::attack(void)
 {
-	std::cout << HumanB::name << " attacks with their " << HumanB::weapon.getType() << std::endl;
+	if (!HumanB::_weapon)
+	{
+		std::cout << HumanB::_name << " has no weapon!" << std::endl;
+		return ;
+	}
+	std::cout << HumanB::_name << " attacks with their " << HumanB::_weapon->getType() << std::endl;
 }

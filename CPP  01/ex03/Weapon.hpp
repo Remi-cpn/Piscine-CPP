@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rcompain <rcompain@student.42angouleme.    +#+  +:+       +#+        */
+/*   By: rcompain <rcompain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 16:24:52 by rcompain          #+#    #+#             */
-/*   Updated: 2026/04/24 16:58:06 by rcompain         ###   ########.fr       */
+/*   Updated: 2026/04/27 11:59:25 by rcompain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ class Weapon
 		void setType(std::string type);
 
 	private:
-		std::string type;
+		std::string _type;
 };
 
 #endif

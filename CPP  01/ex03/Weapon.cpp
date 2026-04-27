@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rcompain <rcompain@student.42angouleme.    +#+  +:+       +#+        */
+/*   By: rcompain <rcompain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 16:25:09 by rcompain          #+#    #+#             */
-/*   Updated: 2026/04/24 17:06:52 by rcompain         ###   ########.fr       */
+/*   Updated: 2026/04/27 11:59:43 by rcompain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ Weapon::Weapon(void)
 Weapon::Weapon(std::string type)
 {
 	std::cout << DIM << "Constructor Weapon called" << RESET << std::endl;
-	Weapon::type = type;
+	Weapon::_type = type;
 }
 
 /* Destructor */
@@ -36,5 +36,5 @@ Weapon::~Weapon(void)
 
 /* ——— GETTER & SETTER —————————————————————————————————————————————————————— */
 
-std::string const& Weapon::getType(void) { return Weapon::type; }
-void Weapon::setType(std::string type) { Weapon::type = type; }
+std::string const& Weapon::getType(void) { return Weapon::_type; }
+void Weapon::setType(std::string type) { Weapon::_type = type; }
