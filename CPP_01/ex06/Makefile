@@ -6,20 +6,21 @@
 #    By: rcompain <rcompain@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/04/15 13:50:50 by rcompain          #+#    #+#              #
-#    Updated: 2026/04/28 09:37:31 by rcompain         ###   ########.fr        #
+#    Updated: 2026/04/28 10:36:28 by rcompain         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= megaphone
-CC			= c++
-CFLAGS		= -Wall -Wextra -Werror -std=c++98
-RM			= rm -f
-OBJ_DIR		= obj
+NAME		= 	harlFilter
+CC			= 	c++
+CFLAGS		= 	-Wall -Wextra -Werror -std=c++98
+RM			= 	rm -f
+OBJ_DIR		= 	obj
 
 # ——— Sources ——————————————————————————————————————————————————————————————— #
-SRC			= megaphone.cpp
+SRC			= main.cpp \
+			  Harl.cpp
 
-OBJ			= ${SRC:%.c=$(OBJ_DIR)/%.o}
+OBJ			= ${SRC:%.cpp=$(OBJ_DIR)/%.o}
 
 # ——— Rules ————————————————————————————————————————————————————————————————— #
 all: $(NAME)
@@ -28,7 +29,7 @@ $(NAME): $(OBJ)
 	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 	@echo "Project compiled successfully ✅"
 
-$(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)
+$(OBJ_DIR)/%.o: %.cpp | $(OBJ_DIR)
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(OBJ_DIR):
@@ -45,4 +46,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re banner
+.PHONY: all clean fclean re
