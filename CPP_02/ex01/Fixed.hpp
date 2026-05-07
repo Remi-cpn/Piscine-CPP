@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rcompain <rcompain@student.42angouleme.    +#+  +:+       +#+        */
+/*   By: rcompain <rcompain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/06 10:37:57 by rcompain          #+#    #+#             */
-/*   Updated: 2026/05/06 15:54:55 by rcompain         ###   ########.fr       */
+/*   Updated: 2026/05/07 10:25:00 by rcompain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,7 @@ class Fixed
 		~Fixed(void);
 
 		//Operator overload
-		Fixed& 	operator=(const Fixed& srcFixed);
-		Fixed&	operator<<(const Fixed& srcFixed);
+		Fixed& 			operator=(const Fixed& srcFixed);
 
 		//Member functions
 		float 	toFloat(void) const;
@@ -45,5 +44,7 @@ class Fixed
 		int 				_raw;
 		static const int 	_fractional;
 };
+
+std::ostream&	operator<<(std::ostream& os, const Fixed& srcFixed);
 
 #endif

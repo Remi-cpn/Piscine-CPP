@@ -27,8 +27,10 @@ Phonebook::~Phonebook(void)
 
 
 
-/* ——— Public Variables ————————————————————————————————————————————————————— */
+/* ——— Private Variables ———————————————————————————————————————————————————— */
 int Phonebook::_nbContact = 0;
+
+int	Phonebook::getNbContact(void) { return _nbContact; }
 
 
 
@@ -65,7 +67,7 @@ static std::string getInput(std::string prompt)
 		std::cout << "Need only digit !" << std::endl;
 		input = getInput(prompt);
 	}
-	if (prompt == "Index: " && (input.length() != 1 || !std::isdigit(input[0]) || std::atoi(input.c_str()) < 0 || std::atoi(input.c_str()) >= Phonebook::_nbContact))
+	if (prompt == "Index: " && (input.length() != 1 || !std::isdigit(input[0]) || std::atoi(input.c_str()) < 0 || std::atoi(input.c_str()) >= Phonebook::getNbContact()))
 	{
 		std::cout << "Invalid index" << std::endl;
 		input = getInput(prompt);
@@ -83,11 +85,11 @@ void	Phonebook::add(void)
 		Phonebook::_nbContact++;
 
 	// Get contact info
-	this->list[i].firstName = getInput("First name: ");
-	this->list[i].lastName = getInput("Last name: ");
-	this->list[i].nickName = getInput("Nickname: ");
-	this->list[i].phoneNumber = getInput("Phone number: ");
-	this->list[i].darkestSecret = getInput("Darkest secret: ");
+	this->_list[i].setFirstName(getInput("First name: "));
+	this->_list[i].setLastName(getInput("Last name: "));
+	this->_list[i].setNickName(getInput("Nickname: "));
+	this->_list[i].setPhoneNumber(getInput("Phone number: "));
+	this->_list[i].setDarkestSecret(getInput("Darkest secret: "));
 	std::cout << "New contact added" << std::endl;
 	
 	i++;
@@ -115,14 +117,14 @@ void	Phonebook::search(void)
 	std::cout << std::setw(10) << std::right << "First Name" << " | ";
 	std::cout << std::setw(10) << std::right << "Last Name" << " | ";
 	std::cout << std::setw(10) << std::right << "Nick Name" << " | " << std::endl;
-	for (int i = 0; i < 8 && !this->list[i].firstName.empty(); i++)
+	for (int i = 0; i < 8 && !this->_list[i].getFirstName().empty(); i++)
 	{
 		std::cout << " | " << std::setw(10) << std::right << i << " | ";
-		std::cout << std::setw(10) << std::right << formateString(this->list[i].firstName, 10) << " | ";
-		std::cout << std::setw(10) << std::right << formateString(this->list[i].lastName, 10) << " | ";
-		std::cout << std::setw(10) << std::right << formateString(this->list[i].nickName, 10) << " | " << std::endl;
+		std::cout << std::setw(10) << std::right << formateString(this->_list[i].getFirstName(), 10) << " | ";
+		std::cout << std::setw(10) << std::right << formateString(this->_list[i].getLastName(), 10) << " | ";
+		std::cout << std::setw(10) << std::right << formateString(this->_list[i].getNickName(), 10) << " | " << std::endl;
 	}
-	
+
 	// Get index and display contact info
 	if (_nbContact == 0)
 	{
@@ -133,9 +135,9 @@ void	Phonebook::search(void)
 	if (input.empty())
 		return ;
 	int index = std::atoi(input.c_str());
-	std::cout << "First name: " << this->list[index].firstName << std::endl;
-	std::cout << "Last name: " << this->list[index].lastName << std::endl;
-	std::cout << "Nickname: " << this->list[index].nickName << std::endl;
-	std::cout << "Phone number: " << this->list[index].phoneNumber << std::endl;
-	std::cout << "Darkest secret: " << this->list[index].darkestSecret << std::endl;
+	std::cout << "First name: " << this->_list[index].getFirstName() << std::endl;
+	std::cout << "Last name: " << this->_list[index].getLastName() << std::endl;
+	std::cout << "Nickname: " << this->_list[index].getNickName() << std::endl;
+	std::cout << "Phone number: " << this->_list[index].getPhoneNumber() << std::endl;
+	std::cout << "Darkest secret: " << this->_list[index].getDarkestSecret() << std::endl;
 }

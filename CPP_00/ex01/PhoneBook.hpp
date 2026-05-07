@@ -21,14 +21,17 @@ class Phonebook
 {
 	public:
 
-		Contact list[8];
-		static int _nbContact;
-		
 		Phonebook(void);
 		~Phonebook(void);
 
-		void	add(void);
-		void	search(void);
+		void		add(void);
+		void		search(void);
+		static int	getNbContact(void);
+
+	private:
+
+		Contact		_list[8];
+		static int	_nbContact;
 };
 
 #endif

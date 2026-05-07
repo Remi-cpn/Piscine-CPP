@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rcompain <rcompain@student.42angouleme.    +#+  +:+       +#+        */
+/*   By: rcompain <rcompain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/15 09:08:38 by rcompain          #+#    #+#             */
-/*   Updated: 2026/04/17 08:44:34 by rcompain         ###   ########.fr       */
+/*   Updated: 2026/04/28 12:06:41 by rcompain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ int main(int ac, char **av)
 		for (std::string::iterator it = str.begin(); it != str.end(); it++)
 			*it = std::toupper(*it);
 		std::cout << str;
-		if (i < ac - 1)
-			std::cout << " ";
 	}
 	std::cout << std::endl;
 	return 0;
