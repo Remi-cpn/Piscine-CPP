@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rcompain <rcompain@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rcompain <rcompain@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/06 10:38:06 by rcompain          #+#    #+#             */
-/*   Updated: 2026/05/07 12:53:55 by rcompain         ###   ########.fr       */
+/*   Updated: 2026/05/08 11:13:46 by rcompain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ float 	Fixed::toFloat(void) const{ return _raw / (float)(1 << _fractional); }
 int		Fixed::toInt(void) const { return _raw >> _fractional; }
 
 
-/* ——— Satic functions —————————————————————————————————————————————————————— */
+/* ——— Static functions ————————————————————————————————————————————————————— */
 Fixed& 			Fixed::max(Fixed& fixed1, Fixed& fixed2){ return fixed1 > fixed2 ? fixed1 : fixed2; }
 const Fixed& 	Fixed::max(const Fixed& fixed1, const Fixed& fixed2){ return fixed1 > fixed2 ? fixed1 : fixed2; }
 Fixed& 			Fixed::min(Fixed& fixed1, Fixed& fixed2){ return fixed1 < fixed2 ? fixed1 : fixed2; }

@@ -6,7 +6,7 @@
 /*   By: rcompain <rcompain@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/06 10:38:06 by rcompain          #+#    #+#             */
-/*   Updated: 2026/05/06 15:35:05 by rcompain         ###   ########.fr       */
+/*   Updated: 2026/05/08 11:12:41 by rcompain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ const int Fixed::_fractional = 8;
 int		Fixed::getRawBits(void) const
 {
 	std::cout << DIM << "getRawBits member function called" << RESET << std::endl;
-	return Fixed::_raw; 
+	return this->_raw; 
 }
 void	Fixed::setRawBits(int const raw) { Fixed::_raw = raw; }
 

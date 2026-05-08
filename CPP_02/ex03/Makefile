@@ -6,7 +6,7 @@
 #    By: rcompain <rcompain@student.42angouleme.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/04/15 13:50:50 by rcompain          #+#    #+#              #
-#    Updated: 2026/05/06 10:38:33 by rcompain         ###   ########.fr        #
+#    Updated: 2026/05/08 10:10:35 by rcompain         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,9 @@ OBJ_DIR		= 	obj
 
 # ——— Sources ——————————————————————————————————————————————————————————————— #
 SRC			= Fixed.cpp \
-			  main.cpp
+			  main.cpp \
+			  bsp.cpp \
+			  Point.cpp
 
 OBJ			= ${SRC:%.cpp=$(OBJ_DIR)/%.o}
 

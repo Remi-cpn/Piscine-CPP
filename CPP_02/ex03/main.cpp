@@ -3,29 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rcompain <rcompain@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rcompain <rcompain@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/06 10:37:36 by rcompain          #+#    #+#             */
-/*   Updated: 2026/05/07 11:18:08 by rcompain         ###   ########.fr       */
+/*   Updated: 2026/05/08 11:09:03 by rcompain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#include "Point.hpp"
 
-int main( void ) 
+#define YELLOW  "\033[33m"
+
+int main( void )
 {
-	Fixed a;
-	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
-	
-	std::cout << a << std::endl;
-	std::cout << ++a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a++ << std::endl;
-	std::cout << a << std::endl;
-	
-	std::cout << b << std::endl;
+	Point a(0, 0);
+	Point b(4, 0);
+	Point c(0, 4);
 
-	std::cout << Fixed::max( a, b ) << std::endl;
+	//Test 1.
+	std::cout << YELLOW << "Test 1 :" << RESET << std::endl;
+	std::cout << "Inside:   " << bsp(a, b, c, Point(1, 1)) << std::endl;
+	
+	//Test 2.
+	std::cout << YELLOW << "Test 2 :" << RESET << std::endl;
+	std::cout << "Outside:  " << bsp(a, b, c, Point(3, 3)) << std::endl;
 
-	return 0;
+	//Test 3.
+	std::cout << YELLOW << "Test 3 :" << RESET << std::endl;
+	std::cout << "Vertex:   " << bsp(a, b, c, Point(0, 0)) << std::endl;
+
+	//Test 4.
+	std::cout << YELLOW << "Test 4 :" << RESET << std::endl;
+	std::cout << "On edge:  " << bsp(a, b, c, Point(2, 0)) << std::endl;
 }

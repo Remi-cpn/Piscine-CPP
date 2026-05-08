@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rcompain <rcompain@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rcompain <rcompain@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/06 10:37:57 by rcompain          #+#    #+#             */
-/*   Updated: 2026/05/07 12:52:41 by rcompain         ###   ########.fr       */
+/*   Updated: 2026/05/08 11:13:53 by rcompain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ class Fixed
 		float 	toFloat(void) const;
 		int		toInt(void) const;
 
-		//Satic functions
+		//Static functions
 		static Fixed&		max(Fixed& fixed1, Fixed& fixed2);
 		static const Fixed&	max(const Fixed& fixed1, const Fixed& fixed2);
 		static Fixed&		min(Fixed& fixed1, Fixed& fixed2);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rcompain <rcompain@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rcompain <rcompain@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/06 10:38:06 by rcompain          #+#    #+#             */
-/*   Updated: 2026/05/07 12:53:55 by rcompain         ###   ########.fr       */
+/*   Updated: 2026/05/08 11:14:04 by rcompain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,26 +17,11 @@ const int Fixed::_fractional = 8;
 
 
 /* ——— Constructor & Destructor ————————————————————————————————————————————— */
-Fixed::Fixed(void) : _raw(0){
-	std::cout << DIM << "Default constructor called" << RESET << std::endl;
-}
-
-Fixed::Fixed(const Fixed& srcFixed){
-	std::cout << DIM << "Copy constructor called" << RESET << std::endl;
-	*this = srcFixed;
-}
-
-Fixed::Fixed(const int i) : _raw(i << _fractional){
-	std::cout << DIM << "Int constructor called" << RESET << std::endl;
-}
-
-Fixed::Fixed(const float f): _raw(roundf(f * (1 << _fractional))){
-	std::cout << DIM << "Float constructor called" << RESET << std::endl;
-}
-
-Fixed::~Fixed(void){
-	std::cout << DIM << "Destructor called" << RESET << std::endl;
-}
+Fixed::Fixed(void) : _raw(0){}
+Fixed::Fixed(const Fixed& srcFixed){ *this = srcFixed; }
+Fixed::Fixed(const int i) : _raw(i << _fractional){}
+Fixed::Fixed(const float f): _raw(roundf(f * (1 << _fractional))){}
+Fixed::~Fixed(void){}
 
 
 /* ——— Getters & Setters ———————————————————————————————————————————————————— */
@@ -49,7 +34,7 @@ float 	Fixed::toFloat(void) const{ return _raw / (float)(1 << _fractional); }
 int		Fixed::toInt(void) const { return _raw >> _fractional; }
 
 
-/* ——— Satic functions —————————————————————————————————————————————————————— */
+/* ——— Static functions ————————————————————————————————————————————————————— */
 Fixed& 			Fixed::max(Fixed& fixed1, Fixed& fixed2){ return fixed1 > fixed2 ? fixed1 : fixed2; }
 const Fixed& 	Fixed::max(const Fixed& fixed1, const Fixed& fixed2){ return fixed1 > fixed2 ? fixed1 : fixed2; }
 Fixed& 			Fixed::min(Fixed& fixed1, Fixed& fixed2){ return fixed1 < fixed2 ? fixed1 : fixed2; }
