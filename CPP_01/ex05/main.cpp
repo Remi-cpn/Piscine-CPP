@@ -6,7 +6,7 @@
 /*   By: rcompain <rcompain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/27 15:20:08 by rcompain          #+#    #+#             */
-/*   Updated: 2026/04/28 10:05:03 by rcompain         ###   ########.fr       */
+/*   Updated: 2026/05/22 10:19:16 by rcompain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,6 @@ int main (void)
 	//Test 5.
 	std::cout << YELLOW << "Test 5 : Command not found" << RESET << std::endl;
 	harl.complain("infdsgdfdh");
+
+	return 0;
 }

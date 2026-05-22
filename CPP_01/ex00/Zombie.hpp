@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rcompain <rcompain@student.42angouleme.    +#+  +:+       +#+        */
+/*   By: rcompain <rcompain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 13:57:12 by rcompain          #+#    #+#             */
-/*   Updated: 2026/04/24 14:52:08 by rcompain         ###   ########.fr       */
+/*   Updated: 2026/05/19 14:53:09 by rcompain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMIE_HPP
+#ifndef ZOMBIE_HPP
 # define ZOMBIE_HPP
 
 #include <iostream>

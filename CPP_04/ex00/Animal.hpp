@@ -1,40 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rcompain <rcompain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/24 13:57:12 by rcompain          #+#    #+#             */
-/*   Updated: 2026/05/19 14:55:06 by rcompain         ###   ########.fr       */
+/*   Created: 2026/05/18 13:54:45 by rcompain          #+#    #+#             */
+/*   Updated: 2026/05/18 14:31:49 by rcompain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-# define ZOMBIE_HPP
+#ifndef ANIMAL_HPP
+# define ANIMAL_HPP
 
 #include <iostream>
-#include <string>
 
-#define YELLOW  "\033[33m"
-#define DIM		"\033[2m"
-#define RESET   "\033[0m"
-
-class Zombie
+class Animal
 {
 	public:
+		//Constructors & destructor
+		Animal(void);
+		Animal(const Animal& animal);
+		~Animal(void);
 
-		Zombie(void);
-		~Zombie(void);
+		//Operator overload
+		Animal& operator=(const Animal& srcAnimal);
 
-		void setName(std::string name);
-		
-		void announce(void);
+		//Getters & Setters
+		std::string getType(void) const;
+		void		setType(std::string type);
 
-	private:
-		std::string name;
+		//Member functions
+		void	makeSound(void);
+	
+	protected:
+		std::string _type;
 };
-
-Zombie* zombieHorde( int N, std::string name );
 
 #endif

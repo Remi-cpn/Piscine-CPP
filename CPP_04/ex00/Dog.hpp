@@ -1,40 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rcompain <rcompain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/24 13:57:12 by rcompain          #+#    #+#             */
-/*   Updated: 2026/05/19 14:55:06 by rcompain         ###   ########.fr       */
+/*   Created: 2026/05/18 14:11:00 by rcompain          #+#    #+#             */
+/*   Updated: 2026/05/18 14:32:09 by rcompain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-# define ZOMBIE_HPP
+#ifndef DOG_HPP
+# define DOG_HPP
 
-#include <iostream>
-#include <string>
+#include "Animal.hpp"
 
-#define YELLOW  "\033[33m"
-#define DIM		"\033[2m"
-#define RESET   "\033[0m"
-
-class Zombie
+class Dog : public Animal
 {
 	public:
+		//Constructors & destructor
+		Dog(void);
+		Dog(const Dog& dog);
+		~Dog(void);
 
-		Zombie(void);
-		~Zombie(void);
+		//Operator overload
+		Dog& 	operator=(const Dog& srcDog);
 
-		void setName(std::string name);
-		
-		void announce(void);
-
-	private:
-		std::string name;
+		//Member functions
+		void	makeSound(void);
 };
-
-Zombie* zombieHorde( int N, std::string name );
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: rcompain <rcompain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/27 15:19:49 by rcompain          #+#    #+#             */
-/*   Updated: 2026/04/28 11:08:24 by rcompain         ###   ########.fr       */
+/*   Updated: 2026/05/22 10:22:55 by rcompain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,16 @@ void Harl::complain(std::string level)
 	std::map<std::string, int>::const_iterator it = dispatch.find(level);
 	
 	if (it == dispatch.end())
+	{
 		std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+		return ;
+	}
 	
 	switch(it->second)
 	{
-		case 1: Harl::debug(); [[fallthrough]];
-		case 2: Harl::info(); [[fallthrough]];
-		case 3: Harl::warning(); [[fallthrough]];
+		case 1: Harl::debug(); // Fallthrough
+		case 2: Harl::info(); // Fallthrough
+		case 3: Harl::warning(); // Fallthrough
 		case 4:
 		{
 			Harl::error();

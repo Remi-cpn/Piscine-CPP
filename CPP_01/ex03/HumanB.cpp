@@ -6,7 +6,7 @@
 /*   By: rcompain <rcompain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 16:26:19 by rcompain          #+#    #+#             */
-/*   Updated: 2026/04/27 11:58:46 by rcompain         ###   ########.fr       */
+/*   Updated: 2026/05/22 10:21:46 by rcompain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,15 @@
 /* ——— Constructor & Destructor ————————————————————————————————————————————— */
 
 /* Default constructor. */
-HumanB::HumanB(void)
+HumanB::HumanB(void): _weapon(NULL)
 {
 	std::cout << DIM << "Default constructor HumanB called" << RESET << std::endl;
 }
 
 /* Constructor with name and weapon. */
-HumanB::HumanB(std::string name)
+HumanB::HumanB(std::string name): _name(name), _weapon(NULL)
 {
 	std::cout << DIM << "Constructor HumanB called" << RESET << std::endl;
-	HumanB::_name = name;
 }
 
 /* Destructor */
