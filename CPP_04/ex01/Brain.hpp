@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rcompain <rcompain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/18 14:11:00 by rcompain          #+#    #+#             */
-/*   Updated: 2026/05/18 14:32:05 by rcompain         ###   ########.fr       */
+/*   Created: 2026/05/26 15:30:49 by rcompain          #+#    #+#             */
+/*   Updated: 2026/05/26 15:33:46 by rcompain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-# define CAT_HPP
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
 
-#include "Animal.hpp"
+# include <iostream>
 
-class Cat : public Animal
+class Brain
 {
 	public:
-		//Constructors & destructor
-		Cat(void);
-		Cat(const Cat& cat);
-		~Cat(void);
+		Brain(void);
+		Brain(const Brain&);
+		~Brain();
+		
+		Brain& operator=(const Brain&);
 
-		//Operator overload
-		Cat& 	operator=(const Cat& srcCat);
-
-		//Member functions
-		void	makeSound(void) const;
+	private:
+		std::string _array[100];
 };
 
 #endif

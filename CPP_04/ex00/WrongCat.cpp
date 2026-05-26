@@ -1,46 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rcompain <rcompain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/18 13:54:54 by rcompain          #+#    #+#             */
-/*   Updated: 2026/05/26 15:04:24 by rcompain         ###   ########.fr       */
+/*   Created: 2026/05/26 15:20:00 by rcompain          #+#    #+#             */
+/*   Updated: 2026/05/26 15:20:00 by rcompain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "WrongCat.hpp"
 
 #define DIM		"\033[2m"
 #define RESET   "\033[0m"
 
 /* ——— Constructor & Destructor ————————————————————————————————————————————— */
-Animal::Animal(void): _type("Default_Animal"){
-	std::cout << DIM << "Animal default constructor called" << RESET << std::endl;
+WrongCat::WrongCat(void) : WrongAnimal(){
+	std::cout << DIM << "WrongCat default constructor called" << RESET << std::endl;
+	_type = "WrongCat";
 }
-Animal::Animal(const Animal& animal){
-	std::cout << DIM << "Animal copy constructor called" << RESET << std::endl;
-	*this = animal;
+WrongCat::WrongCat(const WrongCat& wrongCat) : WrongAnimal(wrongCat){
+	std::cout << DIM << "WrongCat copy constructor called" << RESET << std::endl;
 }
-Animal::~Animal(void){
-	std::cout << DIM << "Animal destructor called" << RESET << std::endl;
+WrongCat::~WrongCat(void){
+	std::cout << DIM << "WrongCat destructor called" << RESET << std::endl;
 }
-
-
-
-/* ——— Getters & Setters ———————————————————————————————————————————————————— */
-std::string	Animal::getType(void) const { return _type;}
-void		Animal::setType(std::string type) { _type = type;}
-
 
 /* ——— Methodes ————————————————————————————————————————————————————————————— */
-void	Animal::makeSound(void) const { std::cout << "..." << std::endl; }
-
+void	WrongCat::makeSound(void) const { std::cout << "WrongMiaouw" << std::endl; }
 
 
 /* ——— Operator overload ———————————————————————————————————————————————————— */
-Animal& 	Animal::operator=(const Animal& srcAnimal){
-	_type = srcAnimal.getType();
+WrongCat& 	WrongCat::operator=(const WrongCat& srcWrongCat){
+	WrongAnimal::operator=(srcWrongCat);
 	return *this;
 }

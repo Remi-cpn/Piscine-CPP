@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rcompain <rcompain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/18 14:11:00 by rcompain          #+#    #+#             */
-/*   Updated: 2026/05/18 14:32:05 by rcompain         ###   ########.fr       */
+/*   Updated: 2026/05/26 15:20:21 by rcompain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-# define CAT_HPP
+#ifndef WRONGCAT_HPP
+# define WRONGCAT_HPP
 
-#include "Animal.hpp"
+#include "WrongAnimal.hpp"
 
-class Cat : public Animal
+class WrongCat : public WrongAnimal
 {
 	public:
 		//Constructors & destructor
-		Cat(void);
-		Cat(const Cat& cat);
-		~Cat(void);
+		WrongCat(void);
+		WrongCat(const WrongCat& WrongCat);
+		~WrongCat(void);
 
 		//Operator overload
-		Cat& 	operator=(const Cat& srcCat);
+		WrongCat& 	operator=(const WrongCat& srcWrongCat);
 
 		//Member functions
 		void	makeSound(void) const;

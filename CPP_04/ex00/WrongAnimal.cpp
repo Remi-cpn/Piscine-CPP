@@ -1,46 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rcompain <rcompain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/18 13:54:54 by rcompain          #+#    #+#             */
-/*   Updated: 2026/05/26 15:04:24 by rcompain         ###   ########.fr       */
+/*   Updated: 2026/05/26 15:17:15 by rcompain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "WrongAnimal.hpp"
 
 #define DIM		"\033[2m"
 #define RESET   "\033[0m"
 
 /* ——— Constructor & Destructor ————————————————————————————————————————————— */
-Animal::Animal(void): _type("Default_Animal"){
-	std::cout << DIM << "Animal default constructor called" << RESET << std::endl;
+WrongAnimal::WrongAnimal(void): _type("Default_WrongAnimal"){
+	std::cout << DIM << "WrongAnimal default constructor called" << RESET << std::endl;
 }
-Animal::Animal(const Animal& animal){
-	std::cout << DIM << "Animal copy constructor called" << RESET << std::endl;
-	*this = animal;
+WrongAnimal::WrongAnimal(const WrongAnimal& wrongAnimal){
+	std::cout << DIM << "WrongAnimal copy constructor called" << RESET << std::endl;
+	*this = wrongAnimal;
 }
-Animal::~Animal(void){
-	std::cout << DIM << "Animal destructor called" << RESET << std::endl;
+WrongAnimal::~WrongAnimal(void){
+	std::cout << DIM << "WrongAnimal destructor called" << RESET << std::endl;
 }
 
 
 
 /* ——— Getters & Setters ———————————————————————————————————————————————————— */
-std::string	Animal::getType(void) const { return _type;}
-void		Animal::setType(std::string type) { _type = type;}
+std::string	WrongAnimal::getType(void) const { return _type;}
+void		WrongAnimal::setType(std::string type) { _type = type;}
 
 
 /* ——— Methodes ————————————————————————————————————————————————————————————— */
-void	Animal::makeSound(void) const { std::cout << "..." << std::endl; }
+void	WrongAnimal::makeSound(void) const { std::cout << "..." << std::endl; }
 
 
 
 /* ——— Operator overload ———————————————————————————————————————————————————— */
-Animal& 	Animal::operator=(const Animal& srcAnimal){
-	_type = srcAnimal.getType();
+WrongAnimal& 	WrongAnimal::operator=(const WrongAnimal& srcWrongAnimal){
+	_type = srcWrongAnimal.getType();
 	return *this;
 }

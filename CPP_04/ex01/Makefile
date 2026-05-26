@@ -6,7 +6,7 @@
 #    By: rcompain <rcompain@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/04/15 13:50:50 by rcompain          #+#    #+#              #
-#    Updated: 2026/05/26 15:21:21 by rcompain         ###   ########.fr        #
+#    Updated: 2026/05/26 15:29:21 by rcompain         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,9 +20,7 @@ OBJ_DIR		= 	obj
 SRC			= main.cpp \
 			  Cat.cpp \
 			  Dog.cpp \
-			  Animal.cpp \
-			  WrongAnimal.cpp \
-			  WrongCat.cpp
+			  Animal.cpp 
 
 OBJ			= ${SRC:%.cpp=$(OBJ_DIR)/%.o}
 
