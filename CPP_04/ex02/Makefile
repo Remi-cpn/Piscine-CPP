@@ -20,7 +20,7 @@ OBJ_DIR		= 	obj
 SRC			= main.cpp \
 			  Cat.cpp \
 			  Dog.cpp \
-			  Animal.cpp \
+			  AAnimal.cpp \
 			  Brain.cpp
 
 OBJ			= ${SRC:%.cpp=$(OBJ_DIR)/%.o}
