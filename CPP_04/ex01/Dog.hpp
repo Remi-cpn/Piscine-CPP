@@ -6,7 +6,7 @@
 /*   By: rcompain <rcompain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/18 14:11:00 by rcompain          #+#    #+#             */
-/*   Updated: 2026/05/26 16:25:37 by rcompain         ###   ########.fr       */
+/*   Updated: 2026/05/28 12:58:32 by rcompain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,10 @@ class Dog : public Animal
 
 		//Member functions
 		void	makeSound(void) const;
+		Brain*	getBrain(void) const;
 
 	private:
-		Brain* brain;
+		Brain* _brain;
 };
 
 #endif

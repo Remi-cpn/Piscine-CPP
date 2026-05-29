@@ -6,7 +6,7 @@
 /*   By: rcompain <rcompain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/08 13:26:18 by rcompain          #+#    #+#             */
-/*   Updated: 2026/05/12 15:53:51 by rcompain         ###   ########.fr       */
+/*   Updated: 2026/05/29 09:32:11 by rcompain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,31 +22,31 @@ class	ClapTrap
 		ClapTrap(void);
 		ClapTrap(const std::string& name);
 		ClapTrap(const ClapTrap& clapTrap);
-		~ClapTrap(void);
+		virtual ~ClapTrap(void);
 
 		//Operator overload
-		ClapTrap& 	operator=(const ClapTrap& srcClapTrap);
+		ClapTrap& 		operator=(const ClapTrap& srcClapTrap);
 
 		//Member functions
-		void		attack(const std::string& target);
-		void 		takeDamage(unsigned int amount);
-		void		beRepaired(unsigned int amount);
+		virtual void	attack(const std::string& target);
+		void 			takeDamage(unsigned int amount);
+		void			beRepaired(unsigned int amount);
 		
 		//Getters & Setters
-		std::string	getName(void) const;
-		int			getHP(void) const;
-		int			getEP(void) const;
-		int			getAD(void) const;
-		void		setName(const std::string &name);
-		void		setHP(int hitPoints);
-		void		setEP(int energyPoints);
-		void		setAD(int attackDamage);
+		std::string		getName(void) const;
+		int				getHP(void) const;
+		int				getEP(void) const;
+		int				getAD(void) const;
+		void			setName(const std::string &name);
+		void			setHP(int hitPoints);
+		void			setEP(int energyPoints);
+		void			setAD(int attackDamage);
 		
 	protected:
-		std::string _name;
-		int			_hitPoints;
-		int			_energyPoints;
-		int			_attackDamage;
+		std::string		_name;
+		int				_hitPoints;
+		int				_energyPoints;
+		int				_attackDamage;
 };
 
 #endif

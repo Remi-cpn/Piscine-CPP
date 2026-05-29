@@ -6,7 +6,7 @@
 /*   By: rcompain <rcompain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/26 15:30:49 by rcompain          #+#    #+#             */
-/*   Updated: 2026/05/26 16:37:44 by rcompain         ###   ########.fr       */
+/*   Updated: 2026/05/28 12:49:16 by rcompain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,10 @@ class Brain
 		
 		Brain& 		operator=(const Brain&);
 
-		std::string* 	getIdeas(void) const;
-		void			setIdeas(const std::string ideas[100]);
+		const std::string*	getIdeas(void) const;
+		void				setIdeas(const std::string ideas[100]);
+		std::string			getIdea(int index) const;
+		void				setIdea(int index, const std::string& idea);
 
 	private:
 		std::string _ideas[100];

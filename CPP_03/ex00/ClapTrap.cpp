@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rcompain <rcompain@student.42angouleme.    +#+  +:+       +#+        */
+/*   By: rcompain <rcompain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/08 13:26:05 by rcompain          #+#    #+#             */
-/*   Updated: 2026/05/08 14:20:27 by rcompain         ###   ########.fr       */
+/*   Updated: 2026/05/29 09:29:22 by rcompain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	ClapTrap::attack(const std::string& target){
 void 	ClapTrap::takeDamage(unsigned int amount){
 	
 	if (_hitPoints <= 0){
-		std::cout << _name << "is already dead..." << std::endl;
+		std::cout << _name << " is already dead..." << std::endl;
 		return ;
 	}
 	
