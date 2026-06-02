@@ -6,11 +6,12 @@
 /*   By: rcompain <rcompain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 16:09:43 by rcompain          #+#    #+#             */
-/*   Updated: 2026/06/01 18:16:51 by rcompain         ###   ########.fr       */
+/*   Updated: 2026/06/02 12:48:21 by rcompain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
+#include "ICharacter.hpp"
 
 #define DIM		"\033[2m"
 #define RESET   "\033[0m"
@@ -39,12 +40,5 @@ AMateria*	Ice::clone() const
 }
 void	Ice::use(ICharacter& target)
 {
-	std::cout << "*Ice shoots an ice bolt at " << target.getName() <<  " *" << std::endl;
-}
-
-/* ——— Operator overload ———————————————————————————————————————————————————— */
-Ice& Ice::operator=(const Ice& srcIce)
-{
-	_type = srcIce.getType();
-	return *this;
+	std::cout << "* shoots an ice bolt at " << target.getName() <<  " *" << std::endl;
 }

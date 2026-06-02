@@ -6,7 +6,7 @@
 /*   By: rcompain <rcompain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 13:18:22 by rcompain          #+#    #+#             */
-/*   Updated: 2026/06/01 18:17:29 by rcompain         ###   ########.fr       */
+/*   Updated: 2026/06/02 12:47:23 by rcompain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ AMateria::~AMateria(void)
 std::string const& AMateria::getType() const { return _type; }
 void	AMateria::setType(const std::string type) { _type = type; }
 
-void 	AMateria::use(ICharacter& target){}
+void 	AMateria::use(ICharacter&){}
 
 
 /* ——— Operator overload ———————————————————————————————————————————————————— */

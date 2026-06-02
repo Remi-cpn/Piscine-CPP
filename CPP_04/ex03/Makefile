@@ -6,7 +6,7 @@
 #    By: rcompain <rcompain@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/04/15 13:50:50 by rcompain          #+#    #+#              #
-#    Updated: 2026/06/01 18:29:58 by rcompain         ###   ########.fr        #
+#    Updated: 2026/06/02 12:39:11 by rcompain         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ SRC			= main.cpp \
 			  Character.cpp \
 			  Cure.cpp \
 			  Ice.cpp \
+			  MateriaSource.cpp
 
 OBJ			= ${SRC:%.cpp=$(OBJ_DIR)/%.o}
 

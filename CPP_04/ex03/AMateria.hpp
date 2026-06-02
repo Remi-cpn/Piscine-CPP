@@ -6,7 +6,7 @@
 /*   By: rcompain <rcompain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 13:18:25 by rcompain          #+#    #+#             */
-/*   Updated: 2026/06/01 16:06:15 by rcompain         ###   ########.fr       */
+/*   Updated: 2026/06/02 12:44:39 by rcompain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 # define AMATERIA_HPP
 
 #include <iostream>
-#include "ICharacter.hpp"
+
+class ICharacter;
 
 class AMateria
 {

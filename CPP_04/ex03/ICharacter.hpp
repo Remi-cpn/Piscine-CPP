@@ -6,7 +6,7 @@
 /*   By: rcompain <rcompain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 13:23:00 by rcompain          #+#    #+#             */
-/*   Updated: 2026/06/01 17:01:40 by rcompain         ###   ########.fr       */
+/*   Updated: 2026/06/02 12:51:22 by rcompain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,17 @@
 # define ICHARACTER_HPP
 
 #include <iostream>
-#include "AMateria.hpp"
 
 #define DIM		"\033[2m"
 #define RESET   "\033[0m"
+
+class AMateria;
 
 class ICharacter
 {
 	public:
 		//Constructors & destructor
-		virtual ~ICharacter() { std::cout << DIM << "ICharacter default constructor called" << RESET << std::endl; }
+		virtual ~ICharacter() { std::cout << DIM << "ICharacter destructor called" << RESET << std::endl; }
 		
 		//Member functions
 		virtual std::string const & getName() const = 0;

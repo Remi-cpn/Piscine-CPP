@@ -6,12 +6,16 @@
 /*   By: rcompain <rcompain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 17:49:04 by rcompain          #+#    #+#             */
-/*   Updated: 2026/06/01 17:51:25 by rcompain         ###   ########.fr       */
+/*   Updated: 2026/06/02 12:49:17 by rcompain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef IMATERIASOURCE_HPP
 # define IMATERIASOURCE_HPP
+
+#include <iostream>
+
+class AMateria;
 
 class IMateriaSource
 {

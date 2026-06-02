@@ -6,12 +6,12 @@
 /*   By: rcompain <rcompain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/18 13:54:45 by rcompain          #+#    #+#             */
-/*   Updated: 2026/05/29 09:54:32 by rcompain         ###   ########.fr       */
+/*   Updated: 2026/06/02 12:54:46 by rcompain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef AANIMAL_HPP
+# define AANIMAL_HPP
 
 #include <iostream>
 
