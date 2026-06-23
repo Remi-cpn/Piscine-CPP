@@ -16,6 +16,20 @@
 #define DIM		"\033[2m"
 #define RESET	"\033[0m"
 
+PresidentialPardonForm::PresidentialPardonForm():
+	AForm("PresidentialPardonForm", 25, 5),
+	_target("")
+{
+	std::cout << DIM << "PresidentialPardonForm default constructor called" << RESET << std::endl;
+}
+
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& src):
+	AForm(src),
+	_target(src._target)
+{
+	std::cout << DIM << "PresidentialPardonForm copy constructor called" << RESET << std::endl;
+}
+
 PresidentialPardonForm::PresidentialPardonForm(const std::string& target):
 	AForm("PresidentialPardonForm", 25, 5),
 	_target(target)
@@ -25,6 +39,15 @@ PresidentialPardonForm::PresidentialPardonForm(const std::string& target):
 
 PresidentialPardonForm::~PresidentialPardonForm() {
 	std::cout << DIM << "PresidentialPardonForm destructor called" << RESET << std::endl;
+}
+
+PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPardonForm& src) {
+	std::cout << DIM << "PresidentialPardonForm assignment operator called" << RESET << std::endl;
+	if (this != &src) {
+		AForm::operator=(src);
+		_target = src._target;
+	}
+	return *this;
 }
 
 void PresidentialPardonForm::execute(Bureaucrat const & executor) const {
