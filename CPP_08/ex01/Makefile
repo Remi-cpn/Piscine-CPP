@@ -6,13 +6,13 @@
 #    By: rcompain <rcompain@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/04/15 13:50:50 by rcompain          #+#    #+#              #
-#    Updated: 2026/06/11 15:05:42 by rcompain         ###   ########.fr        #
+#    Updated: 2026/06/29 10:09:20 by rcompain         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= 	Span
 CC			= 	c++
-CFLAGS		= 	-Wall -Wextra -Werror -std=c++98
+CFLAGS		= 	-Wall -Wextra -Werror -std=c++98 -g
 RM			= 	rm -f
 OBJ_DIR		= 	obj
 
