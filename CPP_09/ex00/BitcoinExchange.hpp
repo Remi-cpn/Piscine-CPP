@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PmergeMe.hpp                                       :+:      :+:    :+:   */
+/*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rcompain <rcompain@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/16 08:48:23 by rcompain          #+#    #+#             */
-/*   Updated: 2026/07/16 15:05:29 by rcompain         ###   ########.fr       */
+/*   Created: 2026/07/09 12:14:33 by rcompain          #+#    #+#             */
+/*   Updated: 2026/07/09 13:23:54 by rcompain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <vector>
-#include <list>
+#pragma once
 
-class PmergeMe
+#include <iostream>
+#include <map>
+
+class BitcoinExchange
 {
 	private:
-		 std::vector<int, int> _vectorStack;
-		 std::list<int> _listStack;
+		std::map<std::string, float> data;
 
 	public:
-		PmergeMe(int *);
-		~PmergeMe();
-
-		void algoWithVector(char**);
-		void algoWithLst(char**);
+		BitcoinExchange();
+		BitcoinExchange(const BitcoinExchange& src);
+		BitcoinExchange& operator=(const BitcoinExchange& src);
+		~BitcoinExchange();
+	
+		void addData(std::string, float);
 };
-
-bool argValid(char **);
