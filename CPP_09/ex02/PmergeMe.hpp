@@ -6,7 +6,7 @@
 /*   By: rcompain <rcompain@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/16 08:48:23 by rcompain          #+#    #+#             */
-/*   Updated: 2026/07/16 15:05:29 by rcompain         ###   ########.fr       */
+/*   Updated: 2026/07/21 22:58:01 by rcompain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,17 @@
 class PmergeMe
 {
 	private:
-		 std::vector<int, int> _vectorStack;
+		 std::vector< std::pair<int, int>> _vectorStack;
 		 std::list<int> _listStack;
 
 	public:
-		PmergeMe(int *);
+		PmergeMe(char **);
 		~PmergeMe();
 
 		void algoWithVector(char**);
 		void algoWithLst(char**);
+
+		const std::vector< std::pair<int, int>> &getVectorStack() const;
 };
 
 bool argValid(char **);

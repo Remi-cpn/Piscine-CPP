@@ -6,7 +6,7 @@
 #    By: rcompain <rcompain@student.42angouleme.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/04/15 13:50:50 by rcompain          #+#    #+#              #
-#    Updated: 2026/07/16 08:47:00 by rcompain         ###   ########.fr        #
+#    Updated: 2026/07/21 22:29:10 by rcompain         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ OBJ_DIR		= 	obj
 
 # ——— Sources ——————————————————————————————————————————————————————————————— #
 SRC			= main.cpp \
+			  PmergeMe.cpp
 
 OBJ			= ${SRC:%.cpp=$(OBJ_DIR)/%.o}
 
