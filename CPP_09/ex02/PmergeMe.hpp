@@ -6,7 +6,7 @@
 /*   By: rcompain <rcompain@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/16 08:48:23 by rcompain          #+#    #+#             */
-/*   Updated: 2026/07/21 22:58:01 by rcompain         ###   ########.fr       */
+/*   Updated: 2026/07/23 19:07:39 by rcompain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,31 @@
 class PmergeMe
 {
 	private:
-		 std::vector< std::pair<int, int>> _vectorStack;
-		 std::list<int> _listStack;
+	// ——— Algo With Vector ————————————————————————————————————————————————————
+		std::vector<int> _vectorStack;
+		
+		void	initStackVec(std::string &);
+
+
+	// ——— Algo With Lst ———————————————————————————————————————————————————————
+		std::list<int> _listStack;
+		
+		void	initStackLst(std::string &);
 
 	public:
-		PmergeMe(char **);
+		PmergeMe();
 		~PmergeMe();
+	
+	// ——— Algo With Vector ————————————————————————————————————————————————————
+		void	algoWithVector(char*);
+		void	recAlgoWithVector(int);
+		void	printStackVec(void);
 
-		void algoWithVector(char**);
-		void algoWithLst(char**);
 
-		const std::vector< std::pair<int, int>> &getVectorStack() const;
+	// ——— Algo With Lst ———————————————————————————————————————————————————————
+		void	algoWithLst(char*);
+
+		const std::vector<int>	&getVectorStack() const;
 };
 
-bool argValid(char **);
+bool	argValid(char *);

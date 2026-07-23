@@ -6,13 +6,13 @@
 #    By: rcompain <rcompain@student.42angouleme.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/04/15 13:50:50 by rcompain          #+#    #+#              #
-#    Updated: 2026/07/21 22:29:10 by rcompain         ###   ########.fr        #
+#    Updated: 2026/07/23 19:19:32 by rcompain         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= 	PmergeMe
 CC			= 	c++
-CFLAGS		= 	-Wall -Wextra -Werror -std=c++98
+CFLAGS		= 	-Wall -Wextra -Werror -std=c++98 -g
 RM			= 	rm -f
 OBJ_DIR		= 	obj
 
