@@ -6,7 +6,7 @@
 /*   By: rcompain <rcompain@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/16 08:48:23 by rcompain          #+#    #+#             */
-/*   Updated: 2026/07/27 12:41:31 by rcompain         ###   ########.fr       */
+/*   Updated: 2026/08/03 11:26:42 by rcompain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class PmergeMe
 		void	initStackVec(std::string &);
 		void	recAlgoWithVector(int);
 		void	printStackVec(void);
-		std::vector<int>::iterator lowerBoundVec(std::vector<int>::iterator first, std::vector<int>::iterator last, const int& value);
+		std::vector<int>::iterator lowerBoundVec(std::vector<int>::iterator first, std::vector<int>::iterator last, const int& value, int lvl);
 
 
 
