@@ -6,7 +6,7 @@
 /*   By: rcompain <rcompain@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/16 08:48:32 by rcompain          #+#    #+#             */
-/*   Updated: 2026/08/03 15:00:31 by rcompain         ###   ########.fr       */
+/*   Updated: 2026/08/04 12:40:35 by rcompain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,23 +19,41 @@
 PmergeMe::PmergeMe(){
 	std::cout << DIM << "Default constructor called." << RESET << std::endl;
 }
+
+PmergeMe::PmergeMe(const PmergeMe &src){
+	std::cout << DIM << "Copy constructor called." << RESET << std::endl;
+	*this = src;
+}
+
+PmergeMe	&PmergeMe::operator=(const PmergeMe &src){
+	if (this != &src){
+		_vectorStack = src._vectorStack;
+		_listStack = src._listStack;
+	}
+	return *this;
+}
+
 PmergeMe::~PmergeMe(){
 	std::cout << DIM << "Destructor called." << RESET << std::endl;
 }
 
-
-const std::vector<int> &PmergeMe::getVectorStack()const { return _vectorStack;}
-
-
+const std::vector<int> &PmergeMe::getVectorStack()const{ return _vectorStack;}
+const std::list<int> &PmergeMe::getListStack()const{ return _listStack;}
 
 
 bool	argValid(char *args){
-
 	for (int i = 1; args[i]; i++){
 		if (!isdigit(args[i]) && !isspace(args[i]))
 			return false;
 	}
 	return true;
+}
+
+static void advenceJacobSthalSequence(int *posBegin, int *posEnd){
+	// 0, 1, 1, 3, 5, 11, 21, 43, 85, 171, 341, 683, 1365, 2731, 5461, 10923, 21845, 43691, 87381, 174763, 349525...
+	int a = *posBegin;
+	*posBegin = *posEnd * 2 + *posBegin;
+	*posEnd = a;
 }
 
 
@@ -45,28 +63,25 @@ void	PmergeMe::initStackVec(std::string &args){
 	
 	long	nbr = 0;
 	int		sign = 1;
+	bool	hasDigit = false;
 	for (std::string::iterator it = args.begin(); it != args.end(); it++){
 		if (*it == '-')
 			sign *= -1;
-		else if (*it != ' ')
+		else if (*it != ' '){
 			nbr = (nbr * 10) + *it - '0';
-		if (it + 1 == args.end() || *(it + 1) == ' '){
-			if (nbr >= std::numeric_limits<int>::min() || nbr <= std::numeric_limits<int>::max())
+			hasDigit = true;
+		}
+		if (hasDigit && (it + 1 == args.end() || *(it + 1) == ' ')){
+			if (nbr >= std::numeric_limits<int>::min() && nbr <= std::numeric_limits<int>::max())
 				_vectorStack.push_back(nbr * sign);
 			nbr = 0;
 			sign = 1;
+			hasDigit = false;
 		}
 	}
 }
 
-void	PmergeMe::printStackVec(void){
-	std::cout << "{";
-	for (std::vector<int>::iterator it = _vectorStack.begin(); it != _vectorStack.end(); it++)
-		std::cout << " " << *it;
-	std::cout << " }" << std::endl;
-}
-
-std::vector<int>::iterator PmergeMe::lowerBoundVec(std::vector<int>::iterator first, std::vector<int>::iterator last, const int& value, int lvl)
+static std::vector<int>::iterator lowerBoundVec(std::vector<int>::iterator first, std::vector<int>::iterator last, const int& value, int lvl)
 {
     std::vector<int>::iterator it;
     std::iterator_traits<std::vector<int>::iterator>::difference_type count, step;
@@ -89,40 +104,19 @@ std::vector<int>::iterator PmergeMe::lowerBoundVec(std::vector<int>::iterator fi
     return first;
 }
 
-static void advenceJacobSthalSequence(int *posBegin, int *posEnd){
-	// 0, 1, 1, 3, 5, 11, 21, 43, 85, 171, 341, 683, 1365, 2731, 5461, 10923, 21845, 43691, 87381, 174763, 349525
-	int a = *posBegin;
-	*posBegin = *posEnd * 2 + *posBegin;
-	*posEnd = a;
-}
-
-//static void	printStackTmp(std::vector<int> tmp){
-//	std::cout << "{";
-//	for (std::vector<int>::iterator it = tmp.begin(); it != tmp.end(); it++)
-//		std::cout << " " << *it;
-//	std::cout << " }" << std::endl;
-//}
-
 // ——— Algo With Vector ——————————————————————————————————————————————————————————
 
 void	PmergeMe::algoWithVector(char *args){
-	std::cout << std::endl << "Algo Vector" << std::endl;
 	std::string str(args);
 	initStackVec(str);
-	printStackVec();
 	recAlgoWithVector(1);
-	printStackVec();
 }
 
 void	PmergeMe::recAlgoWithVector(int lvl){
 // Arret de la recursive
 	if (lvl * 2 > (int)_vectorStack.size()){
-		printStackVec();
 		return;
 	}
-
-	std::cout << "Lvl = " << lvl << " ";
-	printStackVec();
 		
 //Boucle de swap
 	for (size_t i = (lvl + lvl - 1); i < _vectorStack.size();)
@@ -133,15 +127,10 @@ void	PmergeMe::recAlgoWithVector(int lvl){
 		}
 		i += lvl + lvl;
 	}
-	std::cout << "Lvl = " << lvl << " ";
-	printStackVec();
-	std::cout << std::endl;
+
 	recAlgoWithVector(lvl * 2);
 
 //Boucle d'insertion
-	std::cout << std::endl << "Lvl = " << lvl << " ";
-	printStackVec();
-	
 	int range = _vectorStack.size() / lvl;
 	if (range < 3)
 		return ;
@@ -185,33 +174,71 @@ void	PmergeMe::recAlgoWithVector(int lvl){
 	for (int i = 0; i < (int)tmp.size(); i++){
 		_vectorStack.push_back(tmp[i]);
 	}
-	std::cout << "Lvl = " << lvl << " ";
-	printStackVec();
-	std::cout << std::endl;
+}
+
+// —————————————————————————————————————————————————————————————————————————————————————————————————
+
+// ——— Utils Algo With List —————————————————————————————————————————————————————
+
+void	PmergeMe::initStackLst(std::string &args){
+	
+	long	nbr = 0;
+	int		sign = 1;
+	bool	hasDigit = false;
+	for (std::string::iterator it = args.begin(); it != args.end(); it++){
+		if (*it == '-')
+			sign *= -1;
+		else if (*it != ' '){
+			nbr = (nbr * 10) + *it - '0';
+			hasDigit = true;
+		}
+		if (hasDigit && (it + 1 == args.end() || *(it + 1) == ' ')){
+			if (nbr >= std::numeric_limits<int>::min() && nbr <= std::numeric_limits<int>::max())
+				_listStack.push_back(nbr * sign);
+			nbr = 0;
+			sign = 1;
+			hasDigit = false;
+		}
+	}
+}
+
+static std::list<int>::iterator lowerBoundLst(std::list<int>::iterator first, std::list<int>::iterator last, const int& value, int lvl)
+{
+    std::list<int>::iterator it;
+    std::iterator_traits<std::list<int>::iterator>::difference_type count, step;
+    count = std::distance(first, last) / lvl;
+
+    while (count > 0)
+    {
+        it = first;
+        step = count / 2;
+        std::advance(it, step * lvl + (lvl - 1));
+        if (*it < value)
+        {
+            first = ++it;
+            count -= step + 1;
+        }
+        else
+            count = step;
+    }
+    return first;
 }
 
 // ——— Algo With Lst ——————————————————————————————————————————————————————————
 
 void	PmergeMe::algoWithLst(char *args){
-	std::cout << std::endl << "Algo List" << std::endl;
 	std::string str(args);
 	initStackLst(str);
-	printStackLst();
 	recAlgoWithLst(1);
-	printStackLst();
-
-	
 }
 
 void	PmergeMe::recAlgoWithLst(int lvl){
-	// Arret de la recursive
+// Arret de la recursive
 	if (lvl * 2 > (int)_listStack.size())
 		return;
 
-	std::cout << "Lvl = " << lvl << " ";
-	printStackLst();
 		
-	//Boucle de swap
+//Boucle de swap
 	std::list<int>::iterator it = _listStack.begin();
 	int size = _listStack.size();
 	int count = lvl + lvl;
@@ -239,35 +266,64 @@ void	PmergeMe::recAlgoWithLst(int lvl){
 		if (count > size)
 			break;
 	}
-	std::cout << "Lvl = " << lvl << " ";
-	printStackLst();
-	std::cout << std::endl;
-	recAlgoWithLst(lvl * 2);
-}
-
-// std::list &operator[]
-
-void	PmergeMe::initStackLst(std::string &args){
 	
-	long	nbr = 0;
-	int		sign = 1;
-	for (std::string::iterator it = args.begin(); it != args.end(); it++){
-		if (*it == '-')
-			sign *= -1;
-		else if (*it != ' ')
-			nbr = (nbr * 10) + *it - '0';
-		if (it == args.end() || *(it + 1) == ' '){
-			if (nbr >= std::numeric_limits<int>::min() || nbr <= std::numeric_limits<int>::max())
-				_listStack.push_back(nbr * sign);
-			nbr = 0;
-			sign = 1;
-		}
-	}
-}
+	recAlgoWithLst(lvl * 2);
 
-void	PmergeMe::printStackLst(void){
-	std::cout << "{";
-	for (std::list<int>::iterator it = _listStack.begin(); it != _listStack.end(); it++)
-		std::cout << " " << *it;
-	std::cout << " }" << std::endl;
+//Boucle d'insertion
+	int range = _listStack.size() / lvl;
+	if (range < 3)
+		return ;
+	
+	std::list<int> tmp(_listStack);
+	_listStack.clear();
+
+	// Main
+	std::list<int>::iterator iti = tmp.begin();
+	std::advance(iti, lvl * 2);
+	_listStack.splice(_listStack.end(), tmp, tmp.begin(), iti);
+	for (int pos = lvl; pos + lvl <= (int)tmp.size(); pos += lvl){
+		std::advance(iti, lvl);
+		std::list<int>::iterator itj = iti;
+		std::advance(itj, lvl);
+		_listStack.splice(_listStack.end(), tmp, iti, itj);
+		iti = itj;
+	}
+
+	// Insertion
+	it = tmp.begin();
+	count = 0;
+	for (int posBegin = 1, posEnd = 1, pos = posBegin; pos * lvl <= (int)tmp.size();){
+		std::list<int>::iterator itPosBegin = it;
+		std::advance(itPosBegin, (pos * lvl) - 1);
+		std::list<int>::iterator itRange = _listStack.begin();
+		std::advance(itRange, lvl * (pos + 1 + count));
+		iti = it;
+		std::advance(iti, lvl * pos - lvl);
+		std::list<int>::iterator itj = it;
+		std::advance(itj, lvl * pos);
+		std::list<int>::iterator itInsert = lowerBoundLst(_listStack.begin(), itRange, *itPosBegin, lvl);
+		for (int i = 0; i < lvl ; i++){
+			_listStack.insert(itInsert, *iti);
+			std::advance(iti, 1);
+		}
+		count++;
+		pos--;
+		if (pos <= posEnd){
+			advenceJacobSthalSequence(&posBegin, &posEnd);
+			pos = posBegin;
+		}
+		while (pos * lvl > (int)tmp.size() && pos >= posEnd){
+			pos--;
+		}
+		if (pos <= posEnd)
+			break;
+	}
+
+	// Enleve les element push dans _listStack de tmp
+	std::list<int>::iterator itErase = tmp.begin();
+	std::advance(itErase, count * lvl);
+	tmp.erase(tmp.begin(), itErase);
+
+	// Le reste
+	_listStack.splice(_listStack.end(), tmp);
 }

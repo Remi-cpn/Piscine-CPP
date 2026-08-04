@@ -6,7 +6,7 @@
 /*   By: rcompain <rcompain@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/16 08:48:23 by rcompain          #+#    #+#             */
-/*   Updated: 2026/08/03 11:26:42 by rcompain         ###   ########.fr       */
+/*   Updated: 2026/08/04 12:34:53 by rcompain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,20 +22,17 @@ class PmergeMe
 		
 		void	initStackVec(std::string &);
 		void	recAlgoWithVector(int);
-		void	printStackVec(void);
-		std::vector<int>::iterator lowerBoundVec(std::vector<int>::iterator first, std::vector<int>::iterator last, const int& value, int lvl);
-
-
 
 	// ——— Algo With Lst ———————————————————————————————————————————————————————
 		std::list<int> _listStack;
 		
 		void	initStackLst(std::string &);
 		void	recAlgoWithLst(int);
-		void	printStackLst(void);
 
 	public:
 		PmergeMe();
+		PmergeMe(const PmergeMe &src);
+		PmergeMe	&operator=(const PmergeMe &src);
 		~PmergeMe();
 	
 	// ——— Algo With Vector ————————————————————————————————————————————————————
@@ -44,8 +41,8 @@ class PmergeMe
 	// ——— Algo With Lst ———————————————————————————————————————————————————————
 		void	algoWithLst(char*);
 
-		const std::vector<int>	&getVectorStack() const;
-		const std::list<int>	&getLstStack() const;
+		const std::vector<int> &getVectorStack()const;
+		const std::list<int> &getListStack()const;
 };
 
 bool	argValid(char *);
