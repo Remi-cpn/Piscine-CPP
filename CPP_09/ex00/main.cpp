@@ -13,57 +13,33 @@
 #include "BitcoinExchange.hpp"
 #include <fstream>
 
-bool checkDate(std::string &date){
-	int count = 0;
-	for (std::string::iterator it = date.begin(); it != date.end(); count++, it++){
-		if (count > 14)
-			return false;
-		if ((count == 4 || count == 7) && *it != ',')
-			return false;
-		else if (!std::isdigit((*it))){
-			return false;
-		}
-	}
-	return true;
-}
-
 int main(int ac, char **av){
-	
+
 	if (ac != 2){
+		std::cout << "Error" << std::endl;
+		return 1;
+	}
+
+	std::ifstream file(av[1]);
+	if (!file.is_open()){
 		std::cout << "Error: could not open file." << std::endl;
 		return 1;
 	}
 
-	BitcoinExchange b;
+	try{
+		BitcoinExchange btc("data.csv");
 
-	std::string fileName(av[1]);
-	std::ifstream file(fileName);
-	std::string line;
-	while (getline(file, line)){
-		std::string date;
-		std::string::iterator it = line.begin();
-		for (; *it != ',' && it != line.end(); it++){
-			date.push_back(*it);
+		std::string line;
+		while (std::getline(file, line)){
+			std::string output = btc.evaluateLine(line);
+			if (!output.empty())
+				std::cout << output << std::endl;
 		}
-		if (!checkDate(date)){
-			std::cout << "date not valid." << std::endl;
-			return 1;
-		}
-		if (it == line.end()){
-			std::cout << "data.csv not valid." << std::endl;
-			return 1;
-		}
-		it++;
-
-		std::string priceString = 0;
-		for (; it != line.end(); it++){
-			priceString.push_back(*it);
-		}
-		float price = std::stof(priceString);
-		
-		b.addData(date, price);
 	}
-
+	catch (const std::exception &e){
+		std::cout << e.what() << std::endl;
+		return 1;
+	}
 
 	return 0;
 }

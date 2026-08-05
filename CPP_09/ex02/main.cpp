@@ -6,13 +6,12 @@
 /*   By: rcompain <rcompain@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/16 08:44:11 by rcompain          #+#    #+#             */
-/*   Updated: 2026/08/04 12:56:34 by rcompain         ###   ########.fr       */
+/*   Updated: 2026/08/05 12:07:24 by rcompain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 #include <sys/time.h>
-#include <iomanip>
 
 static void	printStackVec(std::vector<int> stack){
 	for (std::vector<int>::iterator it = stack.begin(); it != stack.end(); it++)
@@ -74,7 +73,6 @@ int main (int ac, char **av){
 	std::string plurial;
 	if ((int)pm.getVectorStack().size() > 1)
 		plurial = "s";
-	std::cout << std::fixed << std::setprecision(5);
 	std::cout << "Time to process a range of " << pm.getVectorStack().size() << " element" + plurial + " with std::vector : " << timeVec << " us";
 	std::cout << std::endl;
 	std::cout << "Time to process a range of " << pm.getListStack().size() << " element" + plurial + " with std::list : " << timeLst << " us";

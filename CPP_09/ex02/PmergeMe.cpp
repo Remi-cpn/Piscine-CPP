@@ -6,7 +6,7 @@
 /*   By: rcompain <rcompain@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/16 08:48:32 by rcompain          #+#    #+#             */
-/*   Updated: 2026/08/04 12:40:35 by rcompain         ###   ########.fr       */
+/*   Updated: 2026/08/05 12:06:21 by rcompain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ const std::list<int> &PmergeMe::getListStack()const{ return _listStack;}
 
 
 bool	argValid(char *args){
-	for (int i = 1; args[i]; i++){
+	for (int i = 0; args[i]; i++){
 		if (!isdigit(args[i]) && !isspace(args[i]))
 			return false;
 	}
