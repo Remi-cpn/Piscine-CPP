@@ -6,7 +6,7 @@
 /*   By: rcompain <rcompain@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/16 08:48:23 by rcompain          #+#    #+#             */
-/*   Updated: 2026/08/04 12:34:53 by rcompain         ###   ########.fr       */
+/*   Updated: 2026/08/08 11:03:16 by rcompain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,13 @@ class PmergeMe
 		~PmergeMe();
 	
 	// ——— Algo With Vector ————————————————————————————————————————————————————
-		void	algoWithVector(char*);
+		void	algoWithVector(std::string &);
 
 	// ——— Algo With Lst ———————————————————————————————————————————————————————
-		void	algoWithLst(char*);
+		void	algoWithLst(std::string &);
 
 		const std::vector<int> &getVectorStack()const;
 		const std::list<int> &getListStack()const;
 };
 
-bool	argValid(char *);
+bool	argValid(std::string &);

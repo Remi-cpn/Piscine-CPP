@@ -6,7 +6,7 @@
 /*   By: rcompain <rcompain@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/16 08:48:32 by rcompain          #+#    #+#             */
-/*   Updated: 2026/08/05 12:06:21 by rcompain         ###   ########.fr       */
+/*   Updated: 2026/08/08 11:03:58 by rcompain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@ const std::vector<int> &PmergeMe::getVectorStack()const{ return _vectorStack;}
 const std::list<int> &PmergeMe::getListStack()const{ return _listStack;}
 
 
-bool	argValid(char *args){
-	for (int i = 0; args[i]; i++){
-		if (!isdigit(args[i]) && !isspace(args[i]))
+bool	argValid(std::string &args){
+	for (std::string::iterator it = args.begin(); it != args.end(); it++){
+		if (!isdigit(*it) && !isspace(*it))
 			return false;
 	}
 	return true;
@@ -106,8 +106,7 @@ static std::vector<int>::iterator lowerBoundVec(std::vector<int>::iterator first
 
 // ——— Algo With Vector ——————————————————————————————————————————————————————————
 
-void	PmergeMe::algoWithVector(char *args){
-	std::string str(args);
+void	PmergeMe::algoWithVector(std::string &str){
 	initStackVec(str);
 	recAlgoWithVector(1);
 }
@@ -226,8 +225,7 @@ static std::list<int>::iterator lowerBoundLst(std::list<int>::iterator first, st
 
 // ——— Algo With Lst ——————————————————————————————————————————————————————————
 
-void	PmergeMe::algoWithLst(char *args){
-	std::string str(args);
+void	PmergeMe::algoWithLst(std::string &str){
 	initStackLst(str);
 	recAlgoWithLst(1);
 }

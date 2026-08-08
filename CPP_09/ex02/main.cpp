@@ -6,7 +6,7 @@
 /*   By: rcompain <rcompain@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/16 08:44:11 by rcompain          #+#    #+#             */
-/*   Updated: 2026/08/05 12:07:24 by rcompain         ###   ########.fr       */
+/*   Updated: 2026/08/08 11:11:21 by rcompain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,24 +43,36 @@ static double	timeNowUs(void){
 	return (double)tv.tv_sec * 1000000.0 + (double)tv.tv_usec;
 }
 
+static std::string	concatArgs(int ac, char **av){
+	std::string args;
+	for (int i = 1; i < ac; i++){
+		if (i > 1)
+			args += " ";
+		args += av[i];
+	}
+	return args;
+}
+
 int main (int ac, char **av){
 
-	if (ac < 2 || !argValid(av[1])){
+	std::string args = concatArgs(ac, av);
+
+	if (ac < 2 || !argValid(args)){
 		std::cerr << "Error" << std::endl;
 		return 1;
 	}
 
 	PmergeMe pm;
 
-	std::cout << "Before: " << av[1] << std::endl;
+	std::cout << "Before: " << args << std::endl;
 
-	double startVec = timeNowUs();
-	pm.algoWithVector(av[1]);
-	double timeVec = timeNowUs() - startVec;
+	double timeVec = timeNowUs();
+	pm.algoWithVector(args);
+	timeVec = timeNowUs() - timeVec;
 
-	double startLst = timeNowUs();
-	pm.algoWithLst(av[1]);
-	double timeLst = timeNowUs() - startLst;
+	double timeLst = timeNowUs();
+	pm.algoWithLst(args);
+	timeLst = timeNowUs() - timeLst;
 
 	std::cout << "After: ";
 	printStackVec(pm.getVectorStack());
